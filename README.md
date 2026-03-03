@@ -49,4 +49,17 @@ J'ai resauvegardé sous la forme du tag 1.1.1-architecturecorr
 
 ## Etape 3
 
-Je crée le composant TimeController dans Controller
+Je crée le composant TimeController dans Controller.
+Les logs créés semblent corrects, les planètes se déplacent et les vitesses sont ajustées.
+Je remarque néanmoins une légère translation du système par rapport au soleil. Je corrige ça.
+Je remarque aussi que Mercure reste immobile. Je ne sais pas trop d'où ça vient, je creseurais plus tard.
+
+Pour la partie rendu des orbites je ne parviens pas tellement à faire fonctionner le line renderer.
+Je crée un script orbit renderer qui est placé dans les vues puisque cela correspond à des objets visibles.
+Je modifie aussi le bootstrap afin d'initialiser les orbites au lancement de l'application.
+J'observe que le line renderer ne suit pas forcément l'orbite (pas de changement de direction).
+En déchochant world space il suit la planète mais n'est pas forcément orienté correctement.
+Donc je saute cette partie et j'y reviendrai plus tard.
+
+## Etape 4
+

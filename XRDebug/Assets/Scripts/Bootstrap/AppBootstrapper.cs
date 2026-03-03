@@ -6,6 +6,8 @@ public class AppBootstrapper : MonoBehaviour
     public SolarSystemConfig config;
 
     public PlanetView[] planets;
+    public OrbitRenderer[] orbits;
+
 
     TimeModel timeModel;
     PlanetSystemController controller;
@@ -28,6 +30,10 @@ public class AppBootstrapper : MonoBehaviour
         timeModel.SetTime(DateTime.Now);
         timeController = gameObject.AddComponent<TimeController>();
         timeController.Init(timeModel);
+        foreach (var orbit in orbits)
+        {
+            orbit.Init(ephemeris);
+        }
 
         Debug.Log("[BOOT] Application initialized");
     }
