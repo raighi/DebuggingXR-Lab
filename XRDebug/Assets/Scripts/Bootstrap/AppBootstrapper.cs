@@ -40,7 +40,10 @@ public class AppBootstrapper : MonoBehaviour
         }
 
         scaleController = GetComponent<ScaleController>();
-        scaleController.ScaleUp();
+        if (scaleController == null)
+            Debug.LogError("[BOOT] ScaleController non trouvé sur App !");
+        else
+            scaleController.ScaleUp();
         ui.Init(timeModel, scaleController, orbits);
         focusController.Init(timeModel);
         Debug.Log("[BOOT] Application initialized");
