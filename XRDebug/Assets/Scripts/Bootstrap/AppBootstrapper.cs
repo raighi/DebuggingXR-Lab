@@ -7,11 +7,15 @@ public class AppBootstrapper : MonoBehaviour
 
     public PlanetView[] planets;
     public OrbitRenderer[] orbits;
+    public SolarSystemUI ui;
+    public ScaleController scaleController;
+    public FocusController focusController;
 
 
     TimeModel timeModel;
     PlanetSystemController controller;
     TimeController timeController;
+
 
     void Start()
     {
@@ -35,6 +39,10 @@ public class AppBootstrapper : MonoBehaviour
             orbit.Init(ephemeris);
         }
 
+        scaleController = GetComponent<ScaleController>();
+        scaleController.ScaleUp();
+        ui.Init(timeModel, scaleController, orbits);
+        focusController.Init(timeModel);
         Debug.Log("[BOOT] Application initialized");
     }
 }
