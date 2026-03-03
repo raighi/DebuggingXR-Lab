@@ -63,3 +63,25 @@ Donc je saute cette partie et j'y reviendrai plus tard.
 
 ## Etape 4
 
+J'ajoute la structure de solarsystemroot.
+Je teste si c'est possible de le mettre hors du parent app, mais ça ne fonctionne pas, donc je crée le flux sous l'app poiur que cela continue à fonctionner.
+Je place le handle, sous la forme d'une tige rectangulaire transparente.
+Pour tester je lance un build sur casque VR.
+
+Pour le scale controller, je commence par créer un script dans le dossier controllers.
+Sur ce scale controller on s'inspire de ce qui a été fait sur les TP de navigation. On va modifier le scale du solarsystemroot. 
+Après avoir ajouté le script, je modifie le bootstrapper afin qu'il prenne en compte le contrôleur.
+Pour pouvoir interagir, je veux mettre des boutons. Donc je me penche un peu sur la partie implémentation UI avant.
+J'ai implémenter via un canva UI les différents boutons, j'ai modifié la partie BootStrapper pour qu'elle prenne en compte l'ui créée.
+Un script de UIController permet de mettre à jour l'UI, et inversement que l'UI mettte à jour le solarsystemroot.
+Cependant je suis bloqué car je ne parviens par à interagir (que ce soit en simulation ou dans le casque vr) avec mon application.
+Celle-ci s'ouvre, mais je ne peux pas la lancer en plein écran (tandis qu'avec d'autres applications c'est le cas).
+
+Pour la sélection d'une planète, je commence par implément une view supplémentaire (SelectablePlanet.cs). Ensuite pour contrôler le fait de sélectionner et de zoomer il faut créer un FocusController. Puis signifier au BootStrapper que l'on utilise maintenant les modes de sélection.
+
+J'enregistre une version intermédiaire des modes de grab.
+
+## Etape 5 
+
+Une partie de l'interface est déjà en place.
+Je crée un script debugoverlay dans le dossier view.
