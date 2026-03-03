@@ -38,3 +38,15 @@ J'ajoute le component app, puis le solarsystemconfig, mais je me retrouve bloqu�
 Pour règler ce problème j'ajoute manuellement des gamecomponents vide, je les renomme en planète et je leur ajoute le script planet view. Je les assigne ensuite au BootStrap. Cependant je remarque qu'il manque la position du soleil pour avoir la configuration coseillée ou recommandée par le TP.
 Comme cette méthode est chronophage je crée un prefab de planète que j'importerai ultérieurement.
 Les logs sont bons pour le boot, par contre je n'observ pas vraiment un log par planète. Je ne vois pas non plus les planètes.
+Je ne suis pas certain d'avoir saisi le bug, les planètes n'apparaissent pas vraiment, et je ne sais pas si les planètes doivent avoir un log particulier, donc j'enregistre l'étape 2 sous le tag. Les propriétés exigées sur la structure du code sont normalement respectées.
+Après pas mal de temps à  ne pas comprendre le fait de ne rien voir, j'ai changé le service lié au planète afin d'appliquer la correction de la configuration liée à la distance entre les planètes.
+Finalement ce n'était pas du tout ça, donc je retire tout ce qui est raltif à ça, c'était une hallucination de l'IA.
+
+Comme je n'ai pas réglé mon problème d'affichage des planètes, j'ai corrigé des trucs pour configurer plus rapidement le système.
+J'ai créé des materials pour les couleurs des planètes, histoire de les distinguer, puis des prefabs pour chaque planète. J'ai remarqué que je n'avais toujours aucun affichage peu importe ce que je faisais, puis j'ai réalisé que je n'avais pas mis les planètes en enfant de l'app. Une fois cela fait, j'ai modifié le plane pour qu'il soit transparent et j'ai pu voir les planètes, légèrement en mouvement, puisque j'avais déjà configuré le time controller.
+
+J'ai resauvegardé sous la forme du tag 1.1.1-architecturecorr
+
+## Etape 3
+
+Je crée le composant TimeController dans Controller
