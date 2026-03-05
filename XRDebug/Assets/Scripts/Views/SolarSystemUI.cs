@@ -26,6 +26,7 @@ public class SolarSystemUI : MonoBehaviour
         timeModel = model;
         scaleController = scale;
         orbits = orbitRenderers;
+        Debug.Log("[UI] ScaleController reçu : " + (scale == null ? "NULL" : "OK"));
 
         // Abonnement aux événements
         timeModel.OnTimeChanged += UpdateDateDisplay;
@@ -40,6 +41,10 @@ public class SolarSystemUI : MonoBehaviour
             timeModel.Pause();
             Debug.Log("[INPUT] Pause");
         });
+
+        btnScaleUp.onClick.AddListener(() => {
+        if (scaleController == null) { Debug.LogError("[UI] ScaleController null !"); return; }
+        scaleController.ScaleUp();});
 
         btnScaleUp.onClick.AddListener(() => scaleController.ScaleUp());
         btnScaleDown.onClick.AddListener(() => scaleController.ScaleDown());

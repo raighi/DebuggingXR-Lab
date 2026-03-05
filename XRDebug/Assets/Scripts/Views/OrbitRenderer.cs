@@ -4,41 +4,55 @@ using System;
 public class OrbitRenderer : MonoBehaviour
 {
     public PlanetData.Planet planet;
-    public int samples = 100;
+    public int samples = 100000;
+    TimeModel timeModel;
 
-    LineRenderer lr; // référence stockée
+    LineRenderer lr; 
     IPlanetEphemerisService ephemeris;
 
     void Awake()
     {
-        lr = GetComponent<LineRenderer>(); // récupéré dans Awake
+        lr = GetComponent<LineRenderer>(); 
     }
 
-    public void Init(IPlanetEphemerisService ephemerisService)
+    public void Init(IPlanetEphemerisService ephemerisService, TimeModel model)
+{
+    ephemeris = ephemerisService;
+    timeModel = model;
+    DrawOrbit();
+}
+
+void DrawOrbit()
+{
+    lr.useWorldSpace = false;
+    lr.positionCount = samples + 1;
+    lr.loop = true;
+
+    float period = GetOrbitalPeriod();
+    DateTime center = timeModel.CurrentTime; // utilise la date simulée
+    DateTime start = center.AddDays(-period / 2f);
+
+    for (int i = 0; i <= samples; i++)
     {
-        ephemeris = ephemerisService;
-        DrawOrbit();
+        DateTime t = start.AddDays(i * (period / samples));
+        lr.SetPosition(i, ephemeris.GetPlanetPosition(planet, t));
     }
 
-    void DrawOrbit()
+    Debug.Log("[ORBIT] Orbite dessinée pour " + planet);
+}
+float GetOrbitalPeriod()
+{
+    switch (planet)
     {
-        if (lr == null)
-        {
-            Debug.LogError("[ORBIT] LineRenderer manquant sur " + gameObject.name);
-            return;
-        }
-
-        lr.positionCount = samples + 1;
-        lr.loop = true;
-
-        DateTime start = DateTime.Now;
-
-        for (int i = 0; i <= samples; i++)
-        {
-            DateTime t = start.AddDays(i * (365f / samples));
-            lr.SetPosition(i, ephemeris.GetPlanetPosition(planet, t));
-        }
-
-        Debug.Log("[ORBIT] Orbite dessinée pour " + planet);
+        case PlanetData.Planet.Mercury: return 88f;
+        case PlanetData.Planet.Venus:   return 225f;
+        case PlanetData.Planet.Earth:   return 365f;
+        case PlanetData.Planet.Mars:    return 687f;
+        case PlanetData.Planet.Jupiter: return 4333f;
+        case PlanetData.Planet.Saturn:  return 10759f;
+        case PlanetData.Planet.Uranus:  return 30687f;
+        case PlanetData.Planet.Neptune: return 60190f;
+        default: return 365f;
     }
+}
 }

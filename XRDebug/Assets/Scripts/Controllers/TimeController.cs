@@ -15,6 +15,7 @@ public class TimeController : MonoBehaviour
         model.SetTime(current);
     }
 
+
     void Update()
     {
         if (!model.IsPlaying) return;

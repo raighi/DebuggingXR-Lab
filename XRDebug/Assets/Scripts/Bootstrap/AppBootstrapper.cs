@@ -36,7 +36,7 @@ public class AppBootstrapper : MonoBehaviour
         timeController.Init(timeModel);
         foreach (var orbit in orbits)
         {
-            orbit.Init(ephemeris);
+            orbit.Init(ephemeris, timeModel);
         }
 
         scaleController = GetComponent<ScaleController>();
@@ -44,8 +44,10 @@ public class AppBootstrapper : MonoBehaviour
             Debug.LogError("[BOOT] ScaleController non trouvé sur App !");
         else
             scaleController.ScaleUp();
+        Debug.Log("[BOOT] ScaleController avant Init UI : " + (scaleController == null ? "NULL" : "OK"));
         ui.Init(timeModel, scaleController, orbits);
         focusController.Init(timeModel);
+        
         Debug.Log("[BOOT] Application initialized");
     }
 }
