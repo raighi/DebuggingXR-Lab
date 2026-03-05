@@ -105,3 +105,13 @@ Système analogue pour le game object tirable. Celui-ci est tirable mais je n'ai
 L'interface de debug affiche bien les debug lié au temps (les plus nombreux) qu'il faudrait sans doute diminuer.
 L'interface principale affiche les dates, mais pas les bonnes vitesses. Le scale n'est pas encore fonctionnel, et devrait être ajusté à l'aide des boutons de l'UI.
 
+<img width="393" height="472" alt="Capture d&#39;écran 2026-03-03 120336" src="https://github.com/user-attachments/assets/de8faa6e-9b2f-440d-94fe-4f56186f135a" />
+<img width="933" height="711" alt="Capture d&#39;écran 2026-03-03 121251" src="https://github.com/user-attachments/assets/a7240226-22c3-420d-a14f-123e12806ab4" />
+<img width="332" height="245" alt="Capture d&#39;écran 2026-03-03 125119" src="https://github.com/user-attachments/assets/214ef71b-197f-459a-af65-9da3e3c064b7" />
+<img width="968" height="557" alt="Capture d&#39;écran 2026-03-05 223343" src="https://github.com/user-attachments/assets/c38db572-bdb6-48eb-bee9-484891e3ca86" />
+<img width="1010" height="571" alt="Capture d&#39;écran 2026-03-05 223359" src="https://github.com/user-attachments/assets/fde261e0-4d2a-492d-afc3-568d858de281" />
+
+<img width="883" height="723" alt="Capture d&#39;écran 2026-03-05 222944" src="https://github.com/user-attachments/assets/fc78e25b-17a9-459b-aa33-62ce5bd63fb6" />
+<img width="1120" height="730" alt="Capture d&#39;écran 2026-03-05 223241" src="https://github.com/user-attachments/assets/2b5d1b27-c9df-4ef3-91ca-42b4864bdbd6" />
+
+
